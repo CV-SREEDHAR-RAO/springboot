@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<title>Order Reports</title>
+</head>
+<body>
+<h1 align="center" style="color:red">Welcome to Sporty Shoes</h1>
+
+        <h2 style="color:blue">List of Orders</h2>
+        
+ <form th:action="@{/filterby}" method="get">
+Filter:  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Filter by date/category" size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+
+  </form>
+  <br><br>
+  
+<form method="get" th:action="@{/userorder}">
+ <table>
+<tr><th>Order Id</th><th>Product Name</th><th>Product category</th><th>User Name</th><th>Order Date</th></tr>
+<tr th:each="uo :${userorder}">
+<td><span th:text="${uo.oid}"></span>&emsp;</td>
+<td><span th:text="${uo.prodname}"></span>&emsp;</td>
+<td><span th:text="${uo.prodcat}"></span>&emsp;</td>
+<td><span th:text="${uo.puser}"></span>&emsp;</td>
+<td><span th:text="${uo.date}"></span>&emsp;</td>
+</tr>
+</table>
+</form>
+<br>
+<a href="/admin">Back to Admin Logon</a>
+
+</body>
+</html>

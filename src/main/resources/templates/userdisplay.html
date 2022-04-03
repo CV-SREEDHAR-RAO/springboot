@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<title>Registered User List</title>
+</head>
+<body>
+<h1 align="center" style="color:red">Welcome to Sporty Shoes</h1>
+
+        <h2 style="color:blue">Registered User List</h2>
+        
+ <form th:action="@{/search}" method="get">
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Search by Username" size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+
+  </form>
+  <br><br>
+  
+<form method="get" th:action="@{/userdisplay}">
+ <table>
+<tr><th>User Id</th><th>User Name</th><th>Email</th></tr>
+<tr th:each="data :${userreg}">
+<td><span th:text="${data.userid}"></span>&emsp;</td>
+<td><span th:text="${data.username}"></span>&emsp;</td>
+<td><span th:text="${data.email}"></span>&emsp;</td>
+</tr>
+</table>
+</form>
+<br>
+<a href="/admin">Back to Admin Logon</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>New user registration</title>
+</head>
+<body>
+<div class="container">
+<h1 align="center" style="color:red">Welcome to Sporty Shoes</h1>
+<h2 align="center" style="color:blue">User Sign-up</h2>
+<br>
+
+<form th:action="@{/signup}" th:object=${userreg} method="post">
+
+User Name: <input type="text" th:field="*{username}" placeholder="Enter the name" class="form-control col-4 mb">&nbsp;
+
+
+Email Id:<input type="text" th:field="*{email}" placeholder="Enter the email" class="form-control col-4 mb">&nbsp;
+
+Password: <input type="password" th:field="*{password}" placeholder="Enter the password" class="form-control col-4 mb">&nbsp;
+
+<button class="btn btn-primary" type="submit">Sign-up</button>
+
+</form>
+
+</div>
+
+<br>
+<a href="/index">Back to Home-Page</a>
+</body>
+</html>

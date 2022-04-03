@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<title>Search Results</title>
+</head>
+<body>
+<table>
+<h1 align="center" style="color:red">Welcome to Sporty Shoes</h1>
+<h2 style="color:blue">Filtered Results</h2>
+<tr><th>Order Id</th><th>Product Name</th><th>Product category</th><th>User Name</th><th>Order Date</th></tr>
+<tr th:each="uo :${userorder}">
+<td><span th:text="${uo.oid}"></span>&emsp;</td>
+<td><span th:text="${uo.prodname}"></span>&emsp;</td>
+<td><span th:text="${uo.prodcat}"></span>&emsp;</td>
+<td><span th:text="${uo.puser}"></span>&emsp;</td>
+<td><span th:text="${uo.date}"></span>&emsp;</td>
+</tr>
+</table>
+<br>
+ <a href="/userorder">Back to Order Page</a>
+
+</body>
+</html>

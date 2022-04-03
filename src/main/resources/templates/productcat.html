@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Categorize the Products</title>
+</head>
+<body>
+<div class="container">
+<h1 align="center" style="color:red">Welcome to Sporty Shoes</h1>
+<h2 style="color:blue">Product Categorization</h2>
+<br>
+
+<h4 style="color:Red">Caution: Follow the entry criteria while categorization!!!..</h4>
+
+<form th:action="@{/category}" th:object="${productcat}" method="post">
+
+Product Category: <input type="text" th:field="*{category}" placeholder="Enter the Category" class="form-control col-4 mb">&nbsp;
+
+
+Product Name:<input type="text" th:field="*{pname}" placeholder="Enter the product name" class="form-control col-4 mb">&nbsp;
+
+
+<button class="submit" type="submit">Categorize</button>
+
+<ul>
+  <li><h3 style="color:blue">Category->Nike || Product-> Sports Shoes</h3></li>
+   <li><h3 style="color:blue">Category->Reebok || Product-> Sports Shoes</h3></li>
+    <li><h3 style="color:blue">Category->Puma || Product-> Sports Shoes</h3></li>
+     <li><h3 style="color:blue">Category->Redchef || Product-> Sandals</h3></li>
+      <li><h3 style="color:blue">Category->Bata || Product-> Cheppals</h3></li>
+       <li><h3 style="color:blue">Category->Action || Product-> Belt Sandals</h3></li>
+        <li><h3 style="color:blue">Category->Woodland || Product-> Shoes</h3></li>
+</ul>
+
+
+
+</form>
+
+</div>
+
+<br>
+<a href="/admin">Back to Admin-page</a>
+</body>
+</html>
